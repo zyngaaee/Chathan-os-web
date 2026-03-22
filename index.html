@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chathan-OS - Premium Discord Intelligence</title>
+  <meta
+    name="description"
+    content="Chathan-OS is a multi-purpose Discord bot powered by Gemini AI with moderation, security, logging, onboarding, reaction roles, reminders, counting, weekly recaps, and more."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-canvas" id="bgCanvas"></div>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <img src="cos-logo.png" alt="Chathan-OS Logo" class="logo-img" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#sec-detail">Security</a></li>
+        <li><a href="#ai-detail">AI</a></li>
+        <li><a href="docs.html">Docs</a></li>
+        <li><a href="#developer">Developer</a></li>
+      </ul>
+      <a href="#invite" class="btn-nav" id="inviteBtn">Add to Discord</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#features" onclick="closeMenu()">Features</a></li>
+      <li><a href="#sec-detail" onclick="closeMenu()">Security</a></li>
+      <li><a href="#ai-detail" onclick="closeMenu()">AI</a></li>
+      <li><a href="docs.html" onclick="closeMenu()">Docs</a></li>
+      <li><a href="#developer" onclick="closeMenu()">Developer</a></li>
+      <li><a href="#invite" onclick="closeMenu()">Add to Discord</a></li>
+    </ul>
+  </div>
+
+  <section class="hero" id="home">
+    <div class="hero-glow glow-1"></div>
+    <div class="hero-glow glow-2"></div>
+    <div class="hero-glow glow-3"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Powered by Gemini AI
+      </div>
+      <h1 class="hero-title">
+        Your Server's
+        <span class="gradient-text">Ultimate Guardian</span>
+        and AI Brain
+      </h1>
+      <p class="hero-subtitle">
+        Chathan-OS combines enterprise-grade security, Gemini AI intelligence,
+        onboarding tools, logging, automation, and premium member systems in one Discord bot.
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">7+</span>
+          <span class="stat-label">Core Systems</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">50+</span>
+          <span class="stat-label">Documented Commands</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">AI</span>
+          <span class="stat-label">Gemini Powered</span>
+        </div>
+      </div>
+      <div class="hero-cta">
+        <a href="#invite" class="btn-primary" id="heroPrimaryBtn">
+          <span>Add Chathan-OS</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="docs.html" class="btn-secondary">Read Documentation</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="discord-card" id="discordCard">
+        <div class="card-header">
+          <div class="card-avatar"><img src="cos-logo.png" alt="COS" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
+          <div class="card-info">
+            <span class="card-name">Chathan-OS</span>
+            <span class="card-status"><span class="online-dot"></span>Online</span>
+          </div>
+        </div>
+        <div class="card-messages">
+          <div class="msg msg-bot" id="msg1">
+            <span class="msg-prefix">Shield</span>
+            <div class="msg-bubble">Anti-raid triggered. Suspicious join spike detected and lockdown enabled.</div>
+          </div>
+          <div class="msg msg-bot hidden" id="msg2">
+            <span class="msg-prefix">AI</span>
+            <div class="msg-bubble">Weekly recap is ready with the best server highlights and summaries.</div>
+          </div>
+          <div class="msg msg-bot hidden" id="msg3">
+            <span class="msg-prefix">Role</span>
+            <div class="msg-bubble">Reaction role synced. New member onboarding and autoroles completed.</div>
+          </div>
+          <div class="msg msg-bot hidden" id="msg4">
+            <span class="msg-prefix">Logs</span>
+            <div class="msg-bubble">Moderation and audit events are being tracked in the configured log channel.</div>
+          </div>
+        </div>
+        <div class="card-badges">
+          <span class="badge badge-green">Protected</span>
+          <span class="badge badge-red">AI Active</span>
+          <span class="badge badge-white">Logging</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-overview" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Everything You Need</span>
+        <h2 class="section-title">Five Pillars of <span class="gradient-text">Excellence</span></h2>
+        <p class="section-sub">From AI-powered intelligence to bulletproof security, Chathan-OS covers moderation, automation, onboarding, logging, and community management end to end.</p>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar-card" id="security">
+          <div class="pillar-icon" style="--c1:#ff4e6a;--c2:#ff8c42">1</div>
+          <h3>Professional Security Suite</h3>
+          <p>Enterprise-grade protection against raids, nukes, spam, malicious links, and toxic content.</p>
+          <a href="#sec-detail" class="pillar-link">Explore Security -></a>
+        </div>
+
+        <div class="pillar-card" id="ai">
+          <div class="pillar-icon" style="--c1:#7c3aed;--c2:#a78bfa">2</div>
+          <h3>Gemini AI Intelligence</h3>
+          <p>Chat, summaries, translation, auto-tagging, weekly recaps, and runtime-aware fallback handling.</p>
+          <a href="#ai-detail" class="pillar-link">Explore AI -></a>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon" style="--c1:#059669;--c2:#34d399">3</div>
+          <h3>Member Experience</h3>
+          <p>Welcome flows, birthdays, invite tracking, autoroles, reaction roles, counting, and reminders.</p>
+          <a href="#member-detail" class="pillar-link">Explore UX -></a>
+        </div>
+
+        <div class="pillar-card" id="moderation">
+          <div class="pillar-icon" style="--c1:#0ea5e9;--c2:#38bdf8">4</div>
+          <h3>Advanced Moderation</h3>
+          <p>Ban, kick, mute, warn, purge, lock, nickname, slowmode, and detailed moderation logging.</p>
+          <a href="#mod-detail" class="pillar-link">Explore Moderation -></a>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon" style="--c1:#f59e0b;--c2:#fbbf24">5</div>
+          <h3>Transparency and Health</h3>
+          <p>Clear help menus, AI stamina status, persistent config in <code>data.json</code>, and audit visibility.</p>
+          <a href="#transparency-detail" class="pillar-link">Explore More -></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section" id="sec-detail">
+    <div class="container">
+      <div class="detail-header">
+        <div class="detail-icon">01</div>
+        <div>
+          <span class="section-tag">Category 1</span>
+          <h2 class="section-title">Professional <span class="gradient-text red-gradient">Security Suite</span></h2>
+        </div>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card" data-delay="0">
+          <div class="feat-icon red-feat">NK</div>
+          <h4>Anti-Nuke</h4>
+          <p>Monitors mass bans, kicks, channel deletion, and role deletion, then strips dangerous roles from suspected nukers.</p>
+        </div>
+        <div class="feature-card" data-delay="100">
+          <div class="feat-icon red-feat">RD</div>
+          <h4>Anti-Raid</h4>
+          <p>Detects join spikes, logs raid alerts, locks down everyone send permissions, and kicks very new accounts during raids.</p>
+        </div>
+        <div class="feature-card" data-delay="200">
+          <div class="feat-icon red-feat">SP</div>
+          <h4>Anti-Spam and Anti-Link</h4>
+          <p>Rate-based spam detection, repeated-message checks, auto-deletes, warnings, cooldown cleanup, and channel-level anti-link bypasses.</p>
+        </div>
+        <div class="feature-card" data-delay="300">
+          <div class="feat-icon red-feat">AI</div>
+          <h4>AI Toxicity Detection</h4>
+          <p>Uses Gemini-powered moderation signals to detect harmful content patterns that simple keyword rules often miss.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section alt-bg" id="ai-detail">
+    <div class="container">
+      <div class="detail-header">
+        <div class="detail-icon">02</div>
+        <div>
+          <span class="section-tag">Category 2</span>
+          <h2 class="section-title">Gemini AI <span class="gradient-text purple-gradient">Intelligence</span></h2>
+        </div>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card purple-card" data-delay="0">
+          <div class="feat-icon purple-feat">CH</div>
+          <h4>AI Chatbot</h4>
+          <p>A dedicated AI channel with configurable server context so the bot responds with the right tone for your community.</p>
+        </div>
+        <div class="feature-card purple-card" data-delay="100">
+          <div class="feat-icon purple-feat">WR</div>
+          <h4>AI Weekly Recap</h4>
+          <p>Every Sunday, the bot generates a recap of key discussions for configured channels and tracks the latest recap run.</p>
+        </div>
+        <div class="feature-card purple-card" data-delay="200">
+          <div class="feat-icon purple-feat">TG</div>
+          <h4>AI Auto-Tagging</h4>
+          <p>Analyzes new forum threads and applies matching tags automatically in configured forum channels.</p>
+        </div>
+        <div class="feature-card purple-card" data-delay="300">
+          <div class="feat-icon purple-feat">TR</div>
+          <h4>AI Translation</h4>
+          <p>Translates a specific message by ID inside the current channel for easier multilingual support.</p>
+        </div>
+        <div class="feature-card purple-card" data-delay="400">
+          <div class="feat-icon purple-feat">SM</div>
+          <h4>AI Summaries and Status</h4>
+          <p>Summarizes the last 100 messages and exposes AI stamina, cooldown, active model, and request stats with fallback handling.</p>
+        </div>
+      </div>
+      <div class="doc-note-panel ai-limit-note">
+        <h3>AI quota note</h3>
+        <p>AI-powered features depend on Gemini availability and free-tier quota. When quota is exhausted, AI chat, summaries, translations, recaps, and toxicity analysis may slow down, enter cooldown, or temporarily stop until quota resets.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section" id="member-detail">
+    <div class="container">
+      <div class="detail-header">
+        <div class="detail-icon">03</div>
+        <div>
+          <span class="section-tag">Category 3</span>
+          <h2 class="section-title">Premium Member <span class="gradient-text green-gradient">Experience</span></h2>
+        </div>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card green-card" data-delay="0">
+          <div class="feat-icon green-feat">WC</div>
+          <h4>Welcome and Invite Tracking</h4>
+          <p>Welcome embeds, welcome DMs, invite tracking, and optional join autoroles give onboarding a polished first impression.</p>
+        </div>
+        <div class="feature-card green-card" data-delay="100">
+          <div class="feat-icon green-feat">BD</div>
+          <h4>Birthday System</h4>
+          <p>Members can set, delete, and list birthdays with dedicated help commands for easy community celebration.</p>
+        </div>
+        <div class="feature-card green-card" data-delay="200">
+          <div class="feat-icon green-feat">RR</div>
+          <h4>Auto-Roles and Reaction Roles</h4>
+          <p>Manage autoroles for new members and build reaction-role panels with add and remove listeners for self-service access.</p>
+        </div>
+        <div class="feature-card green-card" data-delay="300">
+          <div class="feat-icon green-feat">CT</div>
+          <h4>Counting and Reminders</h4>
+          <p>Configure counting with optional repeat prevention and use reminders for scheduled prompts and member utilities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section alt-bg" id="mod-detail">
+    <div class="container">
+      <div class="detail-header">
+        <div class="detail-icon">04</div>
+        <div>
+          <span class="section-tag">Category 4</span>
+          <h2 class="section-title">Advanced Moderation <span class="gradient-text blue-gradient">and Utility</span></h2>
+        </div>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card blue-card" data-delay="0">
+          <div class="feat-icon blue-feat">MD</div>
+          <h4>Full Mod Suite</h4>
+          <p>Ban, unban by ID, kick, mute, unmute, warn, warnings, clear, purge user, lock, unlock, set nick, and slowmode.</p>
+        </div>
+        <div class="feature-card blue-card" data-delay="100">
+          <div class="feat-icon blue-feat">LG</div>
+          <h4>Professional Logging</h4>
+          <p>A dedicated log channel records moderation actions, audit events, joins, leaves, edits, deletes, anti-raid alerts, and anti-nuke actions.</p>
+        </div>
+        <div class="feature-card blue-card" data-delay="200">
+          <div class="feat-icon blue-feat">EM</div>
+          <h4>Embeds and Reminders</h4>
+          <p>Send custom embeds, edit bot embeds by message ID, and run reminder alerts through a scheduled checker.</p>
+        </div>
+        <div class="feature-card blue-card" data-delay="300">
+          <div class="feat-icon blue-feat">IF</div>
+          <h4>Info Commands</h4>
+          <p>Use info, serverinfo, userinfo, roleinfo, avatar, ping, help, and 8ball to support both staff and members.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="detail-section" id="transparency-detail">
+    <div class="container">
+      <div class="detail-header">
+        <div class="detail-icon">05</div>
+        <div>
+          <span class="section-tag">Category 5</span>
+          <h2 class="section-title">Transparency <span class="gradient-text yellow-gradient">and Health</span></h2>
+        </div>
+      </div>
+      <div class="features-grid two-col">
+        <div class="feature-card yellow-card" data-delay="0">
+          <div class="feat-icon yellow-feat">HP</div>
+          <h4>Categorized Help</h4>
+          <p>A clean help system keeps a large command surface easy to understand even though the bot currently lives in a single <code>index.js</code> file.</p>
+        </div>
+        <div class="feature-card yellow-card" data-delay="100">
+          <div class="feat-icon yellow-feat">ST</div>
+          <h4>AI Status and Stored Config</h4>
+          <p><code>/aistatus</code> exposes runtime health while <code>data.json</code> stores per-server settings like logs, warnings, AI context, recaps, birthdays, and reminders.</p>
+        </div>
+      </div>
+      <div class="doc-note-panel quota-footnote">
+        <h3>Free quota behavior</h3>
+        <p>Some AI features are limited by free quota. If the quota is reached, the bot can fall back, cool down requests, or temporarily disable AI responses until service becomes available again.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="developer-section" id="developer">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Developer Contact</span>
+        <h2 class="section-title">Built By <span class="gradient-text">Zyngaa</span></h2>
+        <p class="section-sub">Need setup help, support, or the latest deployment info? Reach the developer through the official Instagram, email, and Discord contact details below.</p>
+      </div>
+
+      <div class="developer-card">
+        <div class="developer-identity">
+          <div class="developer-badge">Developer</div>
+          <h3>Official contact details</h3>
+          <p>Instagram, email, and Discord are all available here so people can contact you in the way that suits them best.</p>
+        </div>
+
+        <div class="developer-links">
+          <a class="contact-pill" href="https://www.instagram.com/rashqeeeyy/" target="_blank" rel="noopener noreferrer">
+            <span class="contact-label">Instagram</span>
+            <strong>@rashqeeeyy</strong>
+          </a>
+          <a class="contact-pill" href="mailto:rasheeqm2@gmail.com">
+            <span class="contact-label">Email</span>
+            <strong>rasheeqm2@gmail.com</strong>
+          </a>
+          <button class="contact-pill contact-copy" type="button" data-copy="rashqeeeyy">
+            <span class="contact-label">Discord Username</span>
+            <strong>rashqeeeyy</strong>
+          </button>
+        </div>
+
+        <p class="developer-note">Use Instagram, email, or the Discord username to contact the right developer account quickly.</p>
+      </div>
+
+      <div class="static-profile-card" aria-label="Discord profile preview">
+        <div class="static-profile-banner"></div>
+        <div class="static-profile-body">
+          <div class="static-profile-header">
+            <img
+              class="static-profile-avatar"
+              src="https://cdn.discordapp.com/avatars/1154719545563566100/a020d852dcca30910a434d2d5bf3cce3.png?size=512"
+              alt="Discord profile avatar for rashqeeeyy"
+            />
+            <div class="static-profile-meta">
+              <span class="static-profile-tag">Discord Profile</span>
+              <h3>Zynga.hh</h3>
+              <p>@rashqeeeyy</p>
+              <div class="static-profile-facts">
+                <div class="static-profile-fact">
+                  <span class="static-profile-label">Username</span>
+                  <strong>rashqeeeyy</strong>
+                </div>
+                <div class="static-profile-fact">
+                  <span class="static-profile-label">Identity</span>
+                  <strong>Zynga.hh</strong>
+                </div>
+                <div class="static-profile-fact static-profile-fact-wide">
+                  <span class="static-profile-label">Community</span>
+                  <strong>LGM</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="cta-section" id="invite">
+    <div class="cta-glow"></div>
+    <div class="container">
+      <div class="cta-content">
+        <div class="cta-badge">Ready to upgrade your server?</div>
+        <h2 class="cta-title">Add <span class="gradient-text">Chathan-OS</span> Today</h2>
+        <div class="cta-buttons">
+          <a href="https://discord.com/oauth2/authorize?client_id=1484015585619742950&permissions=1376805546182&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noopener noreferrer" class="btn-primary btn-large" id="ctaInviteBtn">
+            <span>Add to Discord Server</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="https://www.instagram.com/rashqeeeyy/" target="_blank" rel="noopener noreferrer" class="btn-ghost btn-large" id="ctaSupportBtn">
+            Contact Developer
+          </a>
+        </div>
+        <p class="cta-note">The developer section includes the official Instagram handle, email address, and Discord username for support and verification.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="cos-logo.png" alt="Chathan-OS" class="footer-logo-img" />
+        </div>
+        <p class="footer-desc">Premium Discord intelligence powered by Google Gemini AI.</p>
+        <div class="footer-links">
+          <a href="#features">Features</a>
+          <a href="#security">Security</a>
+          <a href="#ai">AI</a>
+          <a href="docs.html">Docs</a>
+          <a href="#developer">Developer</a>
+          <a href="#invite">Invite</a>
+        </div>
+        <p class="footer-copy">Copyright 2026 Chathan-OS. Built for the Discord community.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

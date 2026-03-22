@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chathan-OS Docs</title>
+  <meta
+    name="description"
+    content="Documentation for Chathan-OS covering moderation, automod, AI tools, onboarding, logging, automation helpers, and configuration."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-canvas" id="bgCanvas"></div>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <a href="index.html" class="nav-logo">
+          <img src="cos-logo.png" alt="Chathan-OS Logo" class="logo-img" />
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#commands">Commands</a></li>
+        <li><a href="#config">Config</a></li>
+      </ul>
+      <a href="index.html#invite" class="btn-nav">Add to Discord</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+      <li><a href="#overview" onclick="closeMenu()">Overview</a></li>
+      <li><a href="#commands" onclick="closeMenu()">Commands</a></li>
+      <li><a href="#config" onclick="closeMenu()">Config</a></li>
+      <li><a href="index.html#invite" onclick="closeMenu()">Add to Discord</a></li>
+    </ul>
+  </div>
+
+  <section class="hero docs-hero" id="overview">
+    <div class="hero-glow glow-1"></div>
+    <div class="hero-glow glow-2"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Bot Documentation
+      </div>
+      <h1 class="hero-title">
+        Chathan-OS
+        <span class="gradient-text">Documentation</span>
+      </h1>
+      <p class="hero-subtitle">
+        Everything you need to understand the bot's moderation, security, AI, logging,
+        onboarding, and automation systems in one dedicated page.
+      </p>
+      <div class="hero-cta">
+        <a href="#commands" class="btn-primary">
+          <span>Browse Commands</span>
+        </a>
+        <a href="index.html" class="btn-secondary">Back to Home</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="docs-section alt-bg" id="commands">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Bot Documentation</span>
+        <h2 class="section-title">Everything Running Inside <span class="gradient-text">index.js</span></h2>
+        <p class="section-sub">A quick-reference documentation hub covering moderation, security, AI utilities, onboarding systems, automation helpers, logging, and the persistent configuration stored in <code>data.json</code>.</p>
+      </div>
+
+      <div class="docs-intro">
+        <div class="doc-callout">
+          <span class="doc-kicker">Overview</span>
+          <h3>Multi-purpose Discord bot with one core runtime</h3>
+          <p>Main runtime file: <code>index.js</code>. Persistent config and state: <code>data.json</code>. Slash commands are registered per guild and the bot depends on <code>discord.js</code> plus <code>@google/generative-ai</code>.</p>
+        </div>
+        <div class="doc-stats">
+          <div class="doc-stat">
+            <strong>50+</strong>
+            <span>Documented commands</span>
+          </div>
+          <div class="doc-stat">
+            <strong>7</strong>
+            <span>Major bot systems</span>
+          </div>
+          <div class="doc-stat">
+            <strong>1</strong>
+            <span>Single-file runtime</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="docs-grid">
+        <article class="doc-card">
+          <span class="doc-kicker">Moderation</span>
+          <h3>Staff command toolkit</h3>
+          <ul class="doc-list">
+            <li><code>/ban</code>, <code>/unban</code>, <code>/kick</code>, <code>/mute</code>, <code>/unmute</code></li>
+            <li><code>/warn</code>, <code>/warnings</code>, <code>/clear</code>, <code>/purgeuser</code></li>
+            <li><code>/lock</code>, <code>/unlock</code>, <code>/setnick</code>, <code>/slowmode</code></li>
+          </ul>
+        </article>
+
+        <article class="doc-card">
+          <span class="doc-kicker">Security / Automod</span>
+          <h3>Protective systems</h3>
+          <ul class="doc-list">
+            <li><code>/setlog</code>, <code>/antilink</code>, <code>/bypassantilink</code></li>
+            <li><code>/antinuke</code>, <code>/antiraid</code>, <code>/antispam</code>, <code>/antiaitoxicity</code></li>
+            <li>Spam deletes, warning flow, cooldown cleanup, raid lockdown, and anti-nuke role stripping</li>
+          </ul>
+        </article>
+
+        <article class="doc-card">
+          <span class="doc-kicker">AI Features</span>
+          <h3>Gemini-powered utilities</h3>
+          <ul class="doc-list">
+            <li><code>/setaichannel</code>, <code>/setaicontext</code>, <code>/aistatus</code></li>
+            <li><code>/summarize</code>, <code>/translate</code>, AI chat, toxicity checks</li>
+            <li>Forum auto-tagging, weekly recaps, built-in model fallback and cooldown handling</li>
+          </ul>
+        </article>
+
+        <article class="doc-card">
+          <span class="doc-kicker">Onboarding and Roles</span>
+          <h3>Member journey systems</h3>
+          <ul class="doc-list">
+            <li><code>/setwelcome</code>, <code>/testwelcome</code>, welcome embed, welcome DM</li>
+            <li>Invite tracking and optional auto-role assignment on join</li>
+            <li><code>/autorole</code>, <code>/reactionrole</code>, <code>/addreaction</code></li>
+          </ul>
+        </article>
+
+        <article class="doc-card">
+          <span class="doc-kicker">Automation</span>
+          <h3>Recurring and event-driven helpers</h3>
+          <ul class="doc-list">
+            <li><code>/setcounting</code> with repeat prevention and invalid-message cleanup</li>
+            <li><code>/embed</code>, <code>/editembed</code>, <code>/remindme</code></li>
+            <li>Scheduled reminder checker and Sunday recap generation</li>
+          </ul>
+        </article>
+
+        <article class="doc-card">
+          <span class="doc-kicker">Utilities and Info</span>
+          <h3>Insight and engagement commands</h3>
+          <ul class="doc-list">
+            <li><code>/info</code>, <code>/serverinfo</code>, <code>/userinfo</code>, <code>/roleinfo</code></li>
+            <li><code>/avatar</code>, <code>/ping</code>, <code>/help</code>, <code>/8ball</code></li>
+            <li><code>/setautotag</code>, <code>/setweeklyrecap</code>, and forum thread support</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="docs-grid docs-grid-secondary" id="config">
+        <article class="doc-card wide-doc-card">
+          <span class="doc-kicker">Logging and Audit</span>
+          <h3>What gets logged when <code>/setlog</code> is configured</h3>
+          <p>Bans, kicks, mutes, unmutes, warnings, clear and purge actions, lock and unlock actions, unbans, slowmode updates, anti-spam actions, blocked links, message deletes, message edits, member joins and leaves, kicks detected from audit logs, role create/delete/update, ban add/remove, timeout updates, anti-raid alerts, and anti-nuke role stripping.</p>
+        </article>
+
+        <article class="doc-card wide-doc-card">
+          <span class="doc-kicker">Stored Config</span>
+          <h3>Important <code>data.json</code> entries</h3>
+          <p><code>welcomeChannelId</code>, <code>logChannelId</code>, <code>warnings</code>, <code>antilinkEnabled</code>, <code>antilinkBypassChannels</code>, <code>antinukeEnabled</code>, <code>antiraidEnabled</code>, <code>antispamEnabled</code>, <code>autoRoleIds</code>, <code>reactionRoles</code>, <code>counting</code>, <code>aiChannelId</code>, <code>aiContext</code>, <code>aiAutoModEnabled</code>, <code>autoTagChannels</code>, <code>weeklyRecapChannelId</code>, <code>lastRecapDate</code>, <code>ticketConfig</code>, <code>birthdays</code>, <code>reminders</code>, and global AI runtime stats under <code>_global.aiStatus</code>.</p>
+        </article>
+      </div>
+
+      <div class="doc-note-panel ai-limit-note">
+        <h3>AI quota note</h3>
+        <p>AI-powered features depend on Gemini availability and free-tier quota. When quota is exhausted, AI chat, summaries, translations, recaps, and toxicity analysis may slow down, enter cooldown, or temporarily stop until quota resets.</p>
+      </div>
+
+      <div class="doc-note-panel quota-footnote">
+        <h3>Free quota behavior</h3>
+        <p>Some AI features are limited by free quota. If the quota is reached, the bot can fall back, cool down requests, or temporarily disable AI responses until service becomes available again.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="cos-logo.png" alt="Chathan-OS" class="footer-logo-img" />
+        </div>
+        <p class="footer-desc">Premium Discord intelligence powered by Google Gemini AI.</p>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="#overview">Overview</a>
+          <a href="#commands">Commands</a>
+          <a href="#config">Config</a>
+        </div>
+        <p class="footer-copy">Copyright 2026 Chathan-OS. Built for the Discord community.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
